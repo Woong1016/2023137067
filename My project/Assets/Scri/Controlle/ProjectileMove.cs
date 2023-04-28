@@ -32,6 +32,28 @@ public class ProjectileMove : MonoBehaviour
         }
     }
 
+
+    private void OnTriggerEnter(Collider other)     
+    {
+        if (other.gameObject.tag == "wall")            
+        {
+            GameObject temp = this.gameObject;
+            Destroy(temp);
+                
+
+        }
+        if(other.gameObject.tag=="Monster")
+        {
+            other.gameObject.GetComponent<MonsterController>().Monster_Damaged(1);
+            GameObject temp = this.gameObject;
+            Destroy(temp);
+
+
+                
+                
+        }
+    }
+
 }
 
   
