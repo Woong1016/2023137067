@@ -262,6 +262,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: chr_knight
       objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 65544324dfb00ed4b8008b97026e6fe2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 65544324dfb00ed4b8008b97026e6fe2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65544324dfb00ed4b8008b97026e6fe2, type: 3}
 --- !u!1 &352871184
@@ -367,28 +375,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1168006090}
-  - component: {fileID: 1168006089}
+  - component: {fileID: 1168006091}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SwipeSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1168006089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168006088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d3444d9f84a51946baec7f26a2237ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialPos: {x: 0, y: 0}
-  character: {fileID: 0}
 --- !u!4 &1168006090
 Transform:
   m_ObjectHideFlags: 0
@@ -404,21 +398,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1168006091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168006088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a2f328e1f7477246a36244cd8dfa0bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialPos: {x: 0, y: 0}
+  Character: {fileID: 1206905127}
 --- !u!1 &1206905127 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 65544324dfb00ed4b8008b97026e6fe2, type: 3}
   m_PrefabInstance: {fileID: 329452815}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1206905128
+--- !u!114 &1206905130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206905127}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67cbfc99027ae8479e63180d83b0520, type: 3}
+  m_Script: {fileID: 11500000, guid: a9177e0817141974c8dde91eb16ffc30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1688099736
@@ -430,6 +438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1688099738}
+  - component: {fileID: 1688099739}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -452,3 +461,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1688099739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688099736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b95b2c15a6edc94dbc7dfd13ed4356a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tile: {fileID: 6551914900408219127, guid: a8f601c131633674db2ff4d95397977d, type: 3}
