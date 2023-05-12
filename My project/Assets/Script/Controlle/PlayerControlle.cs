@@ -8,8 +8,20 @@ public class PlayerControlle : MonoBehaviour
     public GameObject PlayerPivot;  //플레이어 피봇 선언
         
      Camera viewCamera;             //카메라 정보값을 가져오기 위해 선언
-        Vector3 velocity;          //이동방향 벡터 값 선언
+    Vector3 velocity;          //이동방향 벡터 값 선언
     public ProjectileController projectileController;
+
+    public int Player_hp = 20;
+    public void Player_Damaged(int damage)
+    {
+        Player_hp -= damage;
+        if (Player_hp <= 0)
+        {
+            GameObject temp = this.gameObject;
+            Destroy(temp);
+        }
+
+    }
     // Start is called before the first frame update
     void Start()
     {
