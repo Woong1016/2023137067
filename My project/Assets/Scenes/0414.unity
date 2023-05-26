@@ -321,7 +321,6 @@ GameObject:
   - component: {fileID: 398273750}
   - component: {fileID: 398273749}
   - component: {fileID: 398273751}
-  - component: {fileID: 398273752}
   m_Layer: 0
   m_Name: ProjectileController
   m_TagString: Untagged
@@ -395,19 +394,6 @@ MeshFilter:
   m_GameObject: {fileID: 398273747}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &398273751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398273747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 801f45a82a7cc4246af174ee885107ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  launchDirection: {x: 0, y: 0, z: 0}
---- !u!114 &398273752
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -547,12 +533,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 841692669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d6dde26cdd811143a897810c7da1dba, type: 3}
+  m_Script: {fileID: 11500000, guid: 81a0ac6d267816b4cb14beebf1e626ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
   PlayerPivot: {fileID: 140320511}
-  projectileController: {fileID: 398273752}
+  projectileController: {fileID: 398273751}
+  Player_hp: 20
 --- !u!1 &948350521
 GameObject:
   m_ObjectHideFlags: 0

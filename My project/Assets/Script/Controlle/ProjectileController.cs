@@ -4,26 +4,17 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    public Vector3 launchDirection;
-    public GameObject Projectile;
+    public Vector3 launchDirection;                             //발사 방향 벡터 선언
+    public GameObject Projectile;                               //발사체 프리맵 선언
 
-    // Start is called before the first frame update
-    public void FireProjectile()
+    public void FireProjectile()                                //발사 함수 선언 
     {
-        GameObject Temp = (GameObject)Instantiate(Projectile);
+        GameObject temp = (GameObject)Instantiate(Projectile);  //발사체 프리맵을 생성 시키고 temp 에 입력
+                                                                //Instantiate 함수는 GameObject , 프리팹을 생성 시킨다. 
+        temp.transform.position = this.gameObject.transform.position;
+        temp.GetComponent<ProjectileMove>().launchDirection = transform.forward;
 
-        Temp.transform.position = this.gameObject.transform.position;
-        Temp.GetComponent<ProjectileMove>().launchDirection = transform.forward;
-        Destroy(Temp, 10f);
-        
-
-
-
+        Destroy(temp, 10f);     //발사체 만든것이 10초후에 사라진다.
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

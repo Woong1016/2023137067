@@ -5,8 +5,7 @@ using DG.Tweening;
 
 public class ProjectileMove : MonoBehaviour
 {
-    public Vector3 launchDirection;// 발사체 방향성 선언
-   
+    public Vector3 launchDirection;         //발사체 방향성 선언
 
     public enum BULLETTYPE
     {
@@ -15,69 +14,53 @@ public class ProjectileMove : MonoBehaviour
     }
 
     public BULLETTYPE bulletType = BULLETTYPE.PLAYER;
-    public void FixedUpdate()//이동관련 함수
+
+    private void FixedUpdate()              //이동 관련 함수 
     {
-        float moveAmount = 3 * Time.fixedDeltaTime;
-        transform.Translate(launchDirection * moveAmount);
+        float moveAmount = 3 * Time.fixedDeltaTime;        //발사체 이동 속도
+        transform.Translate(launchDirection * moveAmount); //해당방향으로 이동
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);//충돌이 일어날때 이름을 가져온다
+        Debug.Log(collision.gameObject.name);                   //충돌이 일어날때 이름을 가져온다.
 
-        if (collision.gameObject.name == "wall")
+        if(collision.gameObject.name == "wall")                     //벽에 충돌이 일어났을 때
         {
-            GameObject temp = this.gameObject;//나 자신을 가져와서 Temp에 입력한다
-            Destroy(temp);//곧바로 파괴한다
+            GameObject temp = this.gameObject;                      //나 자신을 가져와서 temp 에 입력한다.
+            Destroy(temp);                                          //곧바로 파괴한다. 
         }
 
-
-        if (collision.gameObject.name == "Monster")
+        if (collision.gameObject.name == "Monster")                     //벽에 충돌이 일어났을 때
         {
             collision.gameObject.GetComponent<MonsterController>().Monster_Damaged(1);
-            GameObject temp = this.gameObject;//나 자신을 가져와서 Temp에 입력한다
-            Destroy(temp);//곧바로 파괴한다
+            GameObject temp = this.gameObject;                      //나 자신을 가져와서 temp 에 입력한다.
+            Destroy(temp);                                          //곧바로 파괴한다. 
         }
     }
 
-
-    private void OnTriggerEnter(Collider other)     
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "wall")            
+        if (other.gameObject.tag == "Wall")                     //벽에 충돌이 일어났을 때
         {
-            GameObject temp = this.gameObject;
-            Destroy(temp);
-                
-
+            GameObject temp = this.gameObject;                      //나 자신을 가져와서 temp 에 입력한다.
+            Destroy(temp);                                          //곧바로 파괴한다. 
         }
 
-       
-
-        
-        if(other.gameObject.tag=="Monster"&& bulletType == BULLETTYPE.PLAYER)
+        if (other.gameObject.tag == "Monster" && bulletType == BULLETTYPE.PLAYER) //몬스터와 충돌이 일어났을 때 && 총알 타입이 Player
         {
             other.gameObject.GetComponent<MonsterController>().Monster_Damaged(1);
             other.gameObject.transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), 0.1f, 10, 1);
-            GameObject temp = this.gameObject;
-            Destroy(temp);
-
-
-                
-                
+            GameObject temp = this.gameObject;                      //나 자신을 가져와서 temp 에 입력한다.
+            Destroy(temp);                                          //곧바로 파괴한다. 
         }
 
-        if (other.gameObject.tag == "Player" && bulletType == BULLETTYPE.PLAYER)
+        if (other.gameObject.tag == "Player" && bulletType == BULLETTYPE.ENEMY) //플레이어와 충돌이 일어났을 때 && 총알 타입이 Enemy
         {
-            other.gameObject.GetComponent<PlayerControlle>().Player_Damaged(1);
-            GameObject temp = this.gameObject;
-            Destroy(temp);
-
-
-
-
+            other.gameObject.GetComponent<PlayerController>().Player_Damaged(1);
+            //other.gameObject.transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), 0.1f, 10, 1);
+            GameObject temp = this.gameObject;                      //나 자신을 가져와서 temp 에 입력한다.
+            Destroy(temp);                                          //곧바로 파괴한다. 
         }
     }
-
 }
-
-  
